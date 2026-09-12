@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://axm.local/schemas/directional-state/state-object.schema.json",
+  "title": "AXM Directional State Object",
+  "description": "Experimental persistent state object for The Field. The schema preserves identity, relationships, evidence references, and uncertainty without assuming actor category determines standing.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "revision", "properties", "relationships"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "kind": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "relationships": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/relationship" }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true,
+      "default": []
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/uncertainty" },
+      "default": []
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "target"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "target": { "type": "string", "minLength": 1 },
+        "direction": {
+          "type": "string",
+          "enum": ["outbound", "inbound", "mutual", "contextual"],
+          "default": "outbound"
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "conditions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "default": []
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true,
+          "default": []
+        },
+        "expires_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      }
+    },
+    "uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim", "status"],
+      "properties": {
+        "claim": { "type": "string", "minLength": 1 },
+        "status": {
+          "type": "string",
+          "enum": ["unknown", "uncertain", "inferred", "disputed"]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true,
+          "default": []
+        }
+      }
+    }
+  }
+}
