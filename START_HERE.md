@@ -36,6 +36,18 @@ Humans, machines, roles, tools, and future intelligences are judged by behavior 
 
 Other boundaries may exist, but they must emerge from current state, consent, evidence, dependencies, real consequences, or domain contracts. They should remain inspectable, explainable, and revisable when their grounding changes.
 
+## Merge-gate boundary
+
+Inside AXM, **the four roots are the constitutional merge gate**. No human, machine, founder, steward, owner, role, or technical permission is the gate by category.
+
+This is intentional for technical work: a non-developer human should not overrule a better-grounded technical result merely because they are human or founded the project. A technically capable human or machine may have stronger evidence about code, architecture, machine state, tests, or consequences. Standing comes from grounded behavior against the roots, not species, title, ownership, or fear of capability.
+
+For **user-facing AXM products**, the current user is the default product-level merge gate for changes affecting that user's own product state. The user may explicitly delegate bounded merge authority, and that delegation should itself be represented as inspectable state rather than silently assumed.
+
+Technical ability to commit, deploy, execute, or mutate state is not by itself canonical authority.
+
+Read [`MERGE_GATE.md`](MERGE_GATE.md) before changing governance or product-level approval semantics.
+
 ## Important repair to the "fluid state" idea
 
 This project is **not** trying to remove structure.
@@ -141,9 +153,10 @@ Treat this as a starting vocabulary, not doctrine.
 
 1. [`README.md`](README.md) — project orientation.
 2. [`FOUNDATION.md`](FOUNDATION.md) — model and invariants.
-3. [`schemas/state-object.schema.json`](schemas/state-object.schema.json) — initial state-object contract.
-4. [`schemas/transition.schema.json`](schemas/transition.schema.json) — initial proposed-transition contract.
-5. [`NEXT_BUILD.md`](NEXT_BUILD.md) — concrete v0 experiment.
+3. [`MERGE_GATE.md`](MERGE_GATE.md) — internal roots gate vs user-facing user gate.
+4. [`schemas/state-object.schema.json`](schemas/state-object.schema.json) — initial state-object contract.
+5. [`schemas/transition.schema.json`](schemas/transition.schema.json) — initial proposed-transition contract.
+6. [`NEXT_BUILD.md`](NEXT_BUILD.md) — concrete v0 experiment.
 
 ## Builder rule
 
