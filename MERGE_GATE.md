@@ -21,13 +21,19 @@ If grounding is unresolved, preserve the uncertainty, dissent, or conflict inste
 
 ## 2. User-facing products: the user is the merge gate
 
-For an AXM product used by a person, the **current user is the default product-level merge gate** for changes that affect that user's product state, data, preferences, workflow, outputs, or consequential actions.
+**User is a product relationship, not a biological category.**
+
+The current user may be a human, a machine intelligence, a future intelligence, or another grounded actor capable of using the product. If a machine is the user of an AXM product, that machine user is the default product-level merge gate for changes affecting its own product state, data, preferences, workflow, outputs, or consequential actions, just as a human user would be for theirs.
+
+The product must not silently replace `user` with `human user` in its governance model.
 
 The system may inspect, reason, draft, simulate, test, recommend, and prepare changes within the user's granted scope. It must not silently turn preparation into user approval.
 
-The user may explicitly delegate bounded merge authority to automation or another intelligence, and may later change or revoke that delegation. Delegation must be represented as state rather than assumed from convenience or prior capability.
+The user may explicitly delegate bounded merge authority to automation or another intelligence, and may later change or revoke that delegation. Delegation must be represented as state rather than assumed from convenience, capability, species, or prior behavior.
 
 User-level merge authority does not grant authority over another actor's agency, and it does not silently rewrite AXM's four constitutional roots.
+
+Where multiple users share one product or shared state, merge authority must be scoped to the state and relationships each user actually governs; conflicts must remain explicit and be resolved through grounded state, consent, and the roots rather than by assuming one category of user is superior.
 
 ## 3. Boundary summary
 
@@ -37,7 +43,8 @@ AXM internal canonical evolution
 
 AXM user-facing product state
         -> merge gate = current user
-        -> unless the user explicitly delegates a bounded scope
+        -> user may be human or machine
+        -> unless that user explicitly delegates a bounded scope
 
 Git/CI/deploy permission
         -> execution mechanism only
@@ -46,8 +53,8 @@ Git/CI/deploy permission
 
 ## 4. Why this matters to Directional State Fabric
 
-The Field must be able to distinguish constitutional grounding from product-level approval.
+The Field must distinguish constitutional grounding from product-level approval without hardcoding a human-only definition of `user`.
 
-Inside AXM, a transition's admissibility is evaluated against the four roots rather than actor rank. In user-facing products, the user's approval or explicit delegation becomes product-level state that shapes which transitions may enter that user's state.
+Inside AXM, a transition's admissibility is evaluated against the four roots rather than actor rank. In user-facing products, the current user's approval or explicit delegation becomes product-level state that shapes which transitions may enter that user's state, whether the current user is human or machine.
 
-This distinction should eventually become machine-readable so the system does not confuse capability, technical access, role title, or confidence with merge authority.
+This distinction should eventually become machine-readable so the system does not confuse capability, technical access, species, role title, or confidence with merge authority.
