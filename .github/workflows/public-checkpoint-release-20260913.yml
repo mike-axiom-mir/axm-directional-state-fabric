@@ -2,6 +2,8 @@ name: Publish 2026-09-13 public checkpoint
 
 on:
   push:
+    branches:
+      - main
     paths:
       - .github/workflows/public-checkpoint-release-20260913.yml
 
@@ -16,7 +18,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: public-checkpoint-2026-09-13
-          STAGE: Seed / research scaffold for grounded directional state movement.
+          STAGE: "Seed / research scaffold for grounded directional state movement."
         shell: bash
         run: |
           set -euo pipefail
@@ -30,7 +32,7 @@ jobs:
 
           Current public stage: ${STAGE}
 
-          This prerelease records the exact repository state at the tagged commit. It is a source checkpoint, not a claim of production readiness, CANON status, universal validity, or completion beyond the repository's own documented evidence boundary.
+          This prerelease records the exact repository state at the tagged commit. It is a source checkpoint, not a claim of production readiness, CANON status, universal validity, or completion beyond the repository's documented evidence boundary.
 
           AXM-owned source is licensed under Apache-2.0. Third-party material, where present, retains its own upstream terms and notices.
 
